@@ -48,11 +48,13 @@
                     <div class="IMC">
                         <p>INDICE DE MASSA CORPORAL (IMC)</p>
                         <div>
-                            <label for="itext">Peso (KG)</label><br>
-                            <input name="itext" id="itext" type="text" placeholder="Digite o peso..."><br>
-                            <label for="itext">Altura (M)</label><br>
-                            <input name="itext" id="itext" type="text" placeholder="Digite a altura..."><br>
-                            <button class="btnCalcular" >Calcular</button>
+                            <form method="POST" action="imc.php">
+                                <label for="itext">Peso (KG)</label><br>
+                                <input name="peso" id="itext" type="text" placeholder="Digite o peso..."><br>
+                                <label for="itext">Altura (M)</label><br>
+                                <input name="altura" id="itext" type="text" placeholder="Digite a altura..."><br>
+                                <button type="submit" class="btnCalcular" >Calcular</button>
+                            </form>
                         </div>
                     </div>
                 </div>
