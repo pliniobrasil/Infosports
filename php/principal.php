@@ -51,11 +51,14 @@
                             <form method="POST" action="#">
                                 <label for="itext">Peso (KG)</label><br>
                                 <input name="peso" id="itext" type="text" placeholder="Digite o peso..."><br>
+                                <br>
                                 <label for="itext">Altura (M)</label><br>
                                 <input name="altura" id="itext" type="text" placeholder="Digite a altura..."><br>
+                                <br>
                                 <button type="submit" class="btnCalcular" >Calcular</button>
                             </form>
-                        <!-- Resultado : <?= $resposta;?> -->
+                        <br>
+                        Resultado : <?= $resposta;?>
                         </div>
                     </div>
                 </div>
