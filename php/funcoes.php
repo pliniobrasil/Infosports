@@ -1,5 +1,13 @@
 <?php
-    
+
+function calcularImc($peso, $altura){
+    $resposta = 0;
+    if ($peso && $altura){
+        $resposta = $peso / ($altura * $altura);
+    }
+    return $resposta;
+}
+
 function criarLista(){
     $listaCard[0] = array(
         "link" => "https://localhost/Infosports/?pagina=basquete",
