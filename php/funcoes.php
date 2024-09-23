@@ -18,6 +18,7 @@ function imcBuscarPorId($id){
 }
 
 function cadastrar($nome,$email,$peso,$altura,$imc,$classificacao){
+    if (!$nome || !$email || !$peso || !$altura || !$imc || !$classificacao){return;}
     $sql = "INSERT INTO `imc` (`nome`,`email`,`peso`,`altura`,`imc`,`classificacao`)
     VALUES(:nome,:email,:peso,:altura,:imc,:classificacao)";
     $pdo = Database::conexao();
