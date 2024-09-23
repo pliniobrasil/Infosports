@@ -2,6 +2,11 @@
 
 include_once('php\funcoes.php');
 include_once('configuracao.php');
+include_once("configuracao/conexao.php");
+
+$nome = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nome'])) ? $_POST['nome'] : null;
+
+$email = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email'])) ? $_POST['email'] : null;
 
 $peso = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['peso'])) ? $_POST['peso'] : null;
 
@@ -10,6 +15,10 @@ $altura = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['altura'])) ? $
 $resposta = 0;
 
 $resposta = calcularImc($peso, $altura);
+
+$classificacao = classificarImc($resposta);
+
+cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);
 
 // Pegando informação da url
 if($_GET && isset($_GET['pagina'])){

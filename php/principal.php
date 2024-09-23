@@ -49,6 +49,12 @@
                         <p>INDICE DE MASSA CORPORAL (IMC)</p>
                         <div>
                             <form method="POST" action="#">
+                                <label for="itext">Nome</label><br>
+                                <input name="nome" id="itext" type="text" placeholder="Digite seu nome..."><br>
+                                <br>
+                                <label for="itext">E-mail</label><br>
+                                <input name="email" id="itext" type="text" placeholder="Digite seu e-mail..."><br>
+                                <br>
                                 <label for="itext">Peso (KG)</label><br>
                                 <input name="peso" id="itext" type="text" placeholder="Digite o peso..."><br>
                                 <br>
@@ -58,7 +64,10 @@
                                 <button type="submit" class="btnCalcular" >Calcular</button>
                             </form>
                         <br>
-                        Resultado : <?= $resposta;?>
+                        <h4>
+                            Resultado: <?= $resposta;?>
+                            Classificação: <?= $classificacao;?>
+                        </h4>
                         </div>
                     </div>
                 </div>
