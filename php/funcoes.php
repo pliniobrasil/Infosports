@@ -53,6 +53,19 @@ function classificarImc($imc){
     }
 }
 
+function registro($nome,$email,$telefone){
+    if (!$nome || !$email || !$telefone){return;}
+    $sql = "INSERT INTO `registro` (`nome`,`email`,`telefone`)
+    VALUES(:nome,:email,:telefone)";
+    $pdo = Database::conexao();
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':telefone', $telefone);
+    $result = $stmt->execute();
+    return ($result)?true:false;
+}
+
 function criarLista(){
     $listaCard[0] = array(
         "link" => "https://localhost/Infosports/?pagina=basquete",

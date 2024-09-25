@@ -12,6 +12,8 @@ $peso = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['peso'])) ? $_POS
 
 $altura = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['altura'])) ? $_POST['altura'] : null;
 
+$telefone = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['telefone'])) ? $_POST['telefone'] : null;
+
 $resposta = 0;
 
 $resposta = calcularImc($peso, $altura);
@@ -19,6 +21,8 @@ $resposta = calcularImc($peso, $altura);
 $classificacao = classificarImc($resposta);
 
 cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);
+
+registro($nome,$email,$telefone);
 
 // Pegando informação da url
 if($_GET && isset($_GET['pagina'])){
