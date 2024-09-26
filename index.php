@@ -24,17 +24,19 @@ $resposta = calcularImc($peso, $altura);
 
 $classificacao = classificarImc($resposta);
 
-cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);
-
-registro($nome,$email,$telefone);
-
-cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
-
 // Pegando informação da url
 if($_GET && isset($_GET['pagina'])){
     $paginaUrl = $_GET['pagina'];
 }else{
     $paginaUrl = null;
+}
+
+if($paginaUrl == "principal"){
+    cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);    
+}elseif($paginaUrl == "registro"){
+    registro($nome,$email,$telefone);    
+}elseif($paginaUrl == "contato"){
+    cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }
 
 include_once('php\header.php');
