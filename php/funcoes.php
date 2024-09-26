@@ -66,9 +66,9 @@ function registro($nome,$email,$telefone){
     return ($result)?true:false;
 }
 
-function cadastrarContato($nome,$sobrenome,$email,$telefone, $mensagem){
+function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem){
     if (!$nome || !$sobrenome || !$email || !$telefone || !$mensagem){return;}
-    $sql = "INSERT INTO `imc` (`nome`,`sobrenome`,`email`,`telefone`,`mensagem`)
+    $sql = "INSERT INTO `contato` (`nome`,`sobrenome`,`email`,`telefone`,`mensagem`)
     VALUES(:nome,:sobrenome,:email,:telefone,:mensagem)";
     $pdo = Database::conexao();
     $stmt = $pdo->prepare($sql);
