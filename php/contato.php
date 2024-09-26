@@ -7,32 +7,33 @@ include_once('header.php');
             <h2>Contate-nos</h2>
         </div>
         <form action="">
-            
-                    <div class="campos">
-                        <div class="input-box">
-                            <label for="itext"></label><br>
-                            <input name="itext" id="itext" type="text" placeholder="Nome">
-                        </div>
-                        <div class="input-box">
-                            <label for="itext"></label><br>
-                            <input name="itext" id="itext" type="text" placeholder="Sobrenome">
-                        </div>
-                        <div class="input-box">
-                            <label for="itext"></label><br>
-                            <input name="itext" id="itext" type="text" placeholder="Email">
-                        </div>
-                        <div class="input-box">
-                            <label for="itext"></label><br>
-                            <input name="itext" id="itext" type="text" placeholder="Telefone">
-                        </div>
-                        <div class="input-box">
-                            <textarea name="message" placeholder="Digite aqui sua mensagem"></textarea>
-                        </div>
-                        <br>
+            <form method="POST" action="#">     
+                <div class="campos">
+                    <div class="input-box">
+                        <label for="itext"></label><br>
+                        <input name="nome" id="itext" type="text" placeholder="Nome">
                     </div>
-                    <div class="button">
-                        <button value="Enviar" class="btn-concluir" id="btnEnviar">Enviar</button>
+                    <div class="input-box">
+                        <label for="itext"></label><br>
+                        <input name="sobrenome" id="itext" type="text" placeholder="Sobrenome">
                     </div>
+                    <div class="input-box">
+                        <label for="itext"></label><br>
+                        <input name="email" id="itext" type="text" placeholder="Email">
+                    </div>
+                    <div class="input-box">
+                        <label for="itext"></label><br>
+                        <input name="telefone" id="itext" type="text" placeholder="Telefone">
+                    </div>
+                    <div class="input-box">
+                        <textarea name="mensagem" placeholder="Digite aqui sua mensagem"></textarea>
+                    </div>
+                    <br>
+                </div>
+                <div class="button">
+                    <button type="submit" value="Enviar" class="btn-concluir" id="btnEnviar">Enviar</button>
+                </div>
+            </form>
         </form>
     </div>
     <section class="contacts">

@@ -6,6 +6,8 @@ include_once("configuracao/conexao.php");
 
 $nome = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nome'])) ? $_POST['nome'] : null;
 
+$sobrenome = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['sobrenome'])) ? $_POST['sobrenome'] : null;
+
 $email = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email'])) ? $_POST['email'] : null;
 
 $peso = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['peso'])) ? $_POST['peso'] : null;
@@ -13,6 +15,8 @@ $peso = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['peso'])) ? $_POS
 $altura = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['altura'])) ? $_POST['altura'] : null;
 
 $telefone = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['telefone'])) ? $_POST['telefone'] : null;
+
+$mensagem = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['mensagem'])) ? $_POST['mensagem'] : null;
 
 $resposta = 0;
 
@@ -23,6 +27,8 @@ $classificacao = classificarImc($resposta);
 cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);
 
 registro($nome,$email,$telefone);
+
+cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 
 // Pegando informação da url
 if($_GET && isset($_GET['pagina'])){
