@@ -55,6 +55,7 @@ function classificarImc($imc){
 
 function registro($nome,$email,$telefone,$login,$senha){
     if (!$nome || !$email || !$telefone|| !$login|| !$senha){return;}
+    $senha = criptografia($senha);
     $sql = "INSERT INTO `registro` (`nome`,`email`,`telefone`,`login`,`senha`)
     VALUES(:nome,:email,:telefone,:login,:senha)";
     $pdo = Database::conexao();
@@ -63,7 +64,7 @@ function registro($nome,$email,$telefone,$login,$senha){
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':telefone', $telefone);
     $stmt->bindParam(':login', $login);
-    $stmt->bindParam(':senha', criptografia($senha));
+    $stmt->bindParam(':senha', $senha);
     $result = $stmt->execute();
     return ($result)?true:false;
 }
