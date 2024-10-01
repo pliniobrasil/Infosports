@@ -17,6 +17,14 @@ include_once('header.php');
                 <label for="itext"></label><br>
                 <input name="telefone" id="itext" type="text" placeholder="Telefone">
             </div>
+            <div class="nome">
+                <label for="itext"></label><br>
+                <input name="login" id="itext" type="text" placeholder="Insira um login válido">
+            </div>
+            <div class="nome">
+                <label for="itext"></label><br>
+                <input name="senha" id="itext" type="password" placeholder="Insira uma senha válida">
+            </div>
             <button type="submit" class="btnConcluir">Concluir</button>
         </form>
     </div>

@@ -18,6 +18,10 @@ $telefone = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['telefone']))
 
 $mensagem = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['mensagem'])) ? $_POST['mensagem'] : null;
 
+$login = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['login'])) ? $_POST['login'] : null;
+
+$senha = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['senha'])) ? $_POST['senha'] : null;
+
 $resposta = 0;
 
 $resposta = calcularImc($peso, $altura);
@@ -34,7 +38,7 @@ if($_GET && isset($_GET['pagina'])){
 if($paginaUrl == "principal"){
     cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);    
 }elseif($paginaUrl == "registro"){
-    registro($nome,$email,$telefone);    
+    registro($nome,$email,$telefone,$login,$senha);    
 }elseif($paginaUrl == "contato"){
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }
