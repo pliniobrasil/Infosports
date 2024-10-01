@@ -36,18 +36,9 @@
         <?php endif; ?>
 </head>
 <header>
-    <a class="titulo" href="https://localhost/Infosports/?pagina=principal">InfoSports</a>
+    <a class="titulo" href="<?=constant('URL_LOCAL_PAGINA').'principal';?>">InfoSports</a>
         <nav class="mainInitial">
             <?php include_once('menuTopo.php');?>
-            <!-- <button class="mainButton">
-                <a class="mainButtonText" href="https://localhost/Infosports/?pagina=login">Login</a>
-            </button>
-            <button class="mainButton">
-                <a class="mainButtonText" href="https://localhost/Infosports/?pagina=registro">Registro</a>
-            </button>
-            <button class="mainButton">
-                <a class="mainButtonText" href="https://localhost/Infosports/?pagina=contato">Contato</a>
-            </button>                        -->
         </nav>
 </header>
 <body>
