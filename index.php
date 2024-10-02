@@ -22,6 +22,16 @@ $login = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['login'])) ? $_P
 
 $senha = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['senha'])) ? $_POST['senha'] : null;
 
+$titulo = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['titulo'])) ? $_POST['titulo'] : null;
+
+$descricao = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['descricao'])) ? $_POST['descricao'] : null;
+
+$descricaoCurta = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['descricaoCurta'])) ? $_POST['descricaoCurta'] : null;
+
+$img = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['img'])) ? $_POST['img'] : null;
+
+$href = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['href'])) ? $_POST['href'] : null;
+
 $resposta = 0;
 
 $resposta = calcularImc($peso, $altura);
@@ -37,8 +47,10 @@ if($_GET && isset($_GET['pagina'])){
 
 if($paginaUrl === "principal"){
     cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);    
+}elseif($paginaUrl === "noticia"){
+    cadastrarNoticia($titulo, $descricao, $descricaoCurta, $img, $href);
 }elseif($paginaUrl === "registro"){
-    registro($nome,$email,$telefone,$login,$senha);    
+    registro($nome,$email,$telefone,$login,$senha);  
 }elseif($paginaUrl === "contato"){
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }
@@ -46,6 +58,8 @@ if($paginaUrl === "principal"){
 include_once('php\header.php');
 if($paginaUrl == "principal"){
     include_once('php\principal.php');
+}elseif($paginaUrl == "noticia"){
+    include_once('php\noticia.php');
 }elseif($paginaUrl == "login"){
     include_once('php\login.php');
 }elseif($paginaUrl == "registro"){

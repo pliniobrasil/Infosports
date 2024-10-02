@@ -9,7 +9,10 @@
         <?php endif; ?>
         <?php if($paginaUrl === "login"):?>
             <link rel="stylesheet" href="./css/login.css">
-            <?php endif; ?>
+        <?php endif; ?>
+        <?php if($paginaUrl === "noticia"):?>
+            <link rel="stylesheet" href="./css/registro.css">
+        <?php endif; ?>
         <?php if($paginaUrl === "registro"):?>
             <link rel="stylesheet" href="./css/registro.css">
         <?php endif; ?>

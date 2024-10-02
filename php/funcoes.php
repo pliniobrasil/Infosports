@@ -97,7 +97,7 @@ function cadastrarNoticia($titulo, $descricao, $descricaoCurta, $img, $href){
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':titulo', $titulo);
     $stmt->bindParam(':descricao', $descricao);
-    $stmt->bindParam(':descricaoCurta', descricaoCurta);
+    $stmt->bindParam(':descricaoCurta', $descricaoCurta);
     $stmt->bindParam(':img', $img);
     $stmt->bindParam(':href', $href);
     $result = $stmt->execute();
