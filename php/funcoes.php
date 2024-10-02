@@ -89,6 +89,15 @@ function criptografia($senha){
     return sha1($senha);
 }
 
+function listarNoticia(){
+    $pdo = Database::conexao();
+    $sql = "SELECT * FROM noticia";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $list;
+}
+
 function criarLista(){
     $listaCard[0] = array(
         "link" => "https://localhost/Infosports/?pagina=basquete",
