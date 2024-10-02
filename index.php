@@ -35,11 +35,11 @@ if($_GET && isset($_GET['pagina'])){
     $paginaUrl = null;
 }
 
-if($paginaUrl == "principal"){
+if($paginaUrl === "principal"){
     cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);    
-}elseif($paginaUrl == "registro"){
+}elseif($paginaUrl === "registro"){
     registro($nome,$email,$telefone,$login,$senha);    
-}elseif($paginaUrl == "contato"){
+}elseif($paginaUrl === "contato"){
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }
 
