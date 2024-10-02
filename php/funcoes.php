@@ -89,6 +89,21 @@ function criptografia($senha){
     return sha1($senha);
 }
 
+function cadastrarNoticia($titulo, $descricao, $descricaoCurta, $img, $href){
+    if (!$titulo || !$descricao || !$descricaoCurta || !$img || !$href){return;}
+    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`descricaoCurta`,`img`,`href`)
+    VALUES(:titulo,:descricao,:descricaoCurta,:img,:href)";
+    $pdo = Database::conexao();
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':titulo', $titulo);
+    $stmt->bindParam(':descricao', $descricao);
+    $stmt->bindParam(':descricaoCurta', descricaoCurta);
+    $stmt->bindParam(':img', $img);
+    $stmt->bindParam(':href', $href);
+    $result = $stmt->execute();
+    return ($result)?true:false;
+}
+
 function listarNoticia(){
     $pdo = Database::conexao();
     $sql = "SELECT * FROM noticia";
