@@ -14,10 +14,6 @@
             <div class="categoryCard">
                 <a class="pagLink" href=<?= $item["link"];?>>
                     <div>
-                        <!-- <img src= <?php echo $imagem1;?> class="mainCardImg" width="320px" height="180px">
-                        <p class="mainCategoryCardTitle">BASQUETE</p>
-                        <p class="mainCategoryCardDescripion">Drible, passe, arremesse! Junte-se ao emocionante mundo do basquete e experimente a empolgação de jogar em equipe, competir em partidas acirradas e fazer cestas incríveis.</p> -->
-
                         <img src= <?php echo $item["imagem"];?> class="mainCardImg" width="320px" height="180px">
                         <br>
                         <?php echo $item["titulo"];?> <br>
@@ -27,18 +23,6 @@
                 </a>
             </div>
             <br>
-            <!-- <div class="categoryCard">
-                <a class="pagLink" href="./html/trilha.html">
-                    <div>
-                        <img src= <?php echo $listaCard[5]["imagem"];?> class="mainCardImg" width="320px" height="180px">
-                        <br>
-                        <?php echo $listaCard[5]["titulo"]?> <br>
-                        <br>
-                        <?php echo $listaCard[5]["descricao"]?>
-                    </div>
-                </a>
-            </div>
-            <br> -->
         <?php
             }
         ?>
