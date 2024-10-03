@@ -46,6 +46,7 @@ if($_GET && isset($_GET['pagina'])){
 }
 
 $arrayUrl = criarArrayUrl();
+
 $includeUrl = FALSE;
 
 if($paginaUrl === "principal"){
@@ -68,30 +69,20 @@ foreach($arrayUrl as $chave => $valor){
     };
 }
 
-// if($paginaUrl == "principal"){
-//     include_once('php\principal.php');
-// }elseif($paginaUrl == "noticia"){
-//     include_once('php\noticia.php');
-// }elseif($paginaUrl == "login"){
-//     include_once('php\login.php');
-// }elseif($paginaUrl == "registro"){
-//     include_once('php\registro.php');
-// }elseif($paginaUrl == "contato"){
-//     include_once('php\contato.php');
-// }elseif($paginaUrl == "basquete"){
-//     include_once('php\basquete.php');
-// }elseif($paginaUrl == "boxe"){
-//     include_once('php\boxe.php');
-// }elseif($paginaUrl == "corrida"){
-//     include_once('php\corrida.php');
-// }elseif($paginaUrl == "surf"){
-//     include_once('php\surf.php');
-// }elseif($paginaUrl == "tenis"){
-//     include_once('php\tenis.php');
-// }elseif($paginaUrl == "trilha"){
-//     include_once('php\trilha.php');
-// }else{
-//     echo "404 Página não existe!";
-// }
+if($paginaUrl === "principal" && !$noticiaId){
+    include_once('php\principal.php');
+}elseif($paginaUrl === "noticia"){
+    include_once('php\noticia.php');
+}elseif($paginaUrl === "login"){
+    include_once('php\login.php');
+}elseif($paginaUrl === "registro"){
+    include_once('php\registro.php');
+}elseif($paginaUrl === "contato"){
+    include_once('php\contato.php');
+}elseif($paginaUrl === "detalhe"){
+    include_once('php\detalhe.php');
+}else{
+    echo "404 Página não existe!";
+}
 include_once('php\footer.php');
 ?>
