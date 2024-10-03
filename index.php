@@ -45,6 +45,9 @@ if($_GET && isset($_GET['pagina'])){
     $paginaUrl = null;
 }
 
+$arrayUrl = criarArrayUrl();
+$includeUrl = FALSE;
+
 if($paginaUrl === "principal"){
     cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);    
 }elseif($paginaUrl === "noticia"){
@@ -56,30 +59,39 @@ if($paginaUrl === "principal"){
 }
 
 include_once('php\header.php');
-if($paginaUrl == "principal"){
-    include_once('php\principal.php');
-}elseif($paginaUrl == "noticia"){
-    include_once('php\noticia.php');
-}elseif($paginaUrl == "login"){
-    include_once('php\login.php');
-}elseif($paginaUrl == "registro"){
-    include_once('php\registro.php');
-}elseif($paginaUrl == "contato"){
-    include_once('php\contato.php');
-}elseif($paginaUrl == "basquete"){
-    include_once('php\basquete.php');
-}elseif($paginaUrl == "boxe"){
-    include_once('php\boxe.php');
-}elseif($paginaUrl == "corrida"){
-    include_once('php\corrida.php');
-}elseif($paginaUrl == "surf"){
-    include_once('php\surf.php');
-}elseif($paginaUrl == "tenis"){
-    include_once('php\tenis.php');
-}elseif($paginaUrl == "trilha"){
-    include_once('php\trilha.php');
-}else{
-    echo "404 Página não existe!";
+
+foreach($arrayUrl as $chave => $valor){
+    if($paginaUrl === $chave){
+        echo include_once($valor);
+        $includeUrl = TRUE;
+        return $includeUrl;
+    };
 }
+
+// if($paginaUrl == "principal"){
+//     include_once('php\principal.php');
+// }elseif($paginaUrl == "noticia"){
+//     include_once('php\noticia.php');
+// }elseif($paginaUrl == "login"){
+//     include_once('php\login.php');
+// }elseif($paginaUrl == "registro"){
+//     include_once('php\registro.php');
+// }elseif($paginaUrl == "contato"){
+//     include_once('php\contato.php');
+// }elseif($paginaUrl == "basquete"){
+//     include_once('php\basquete.php');
+// }elseif($paginaUrl == "boxe"){
+//     include_once('php\boxe.php');
+// }elseif($paginaUrl == "corrida"){
+//     include_once('php\corrida.php');
+// }elseif($paginaUrl == "surf"){
+//     include_once('php\surf.php');
+// }elseif($paginaUrl == "tenis"){
+//     include_once('php\tenis.php');
+// }elseif($paginaUrl == "trilha"){
+//     include_once('php\trilha.php');
+// }else{
+//     echo "404 Página não existe!";
+// }
 include_once('php\footer.php');
 ?>

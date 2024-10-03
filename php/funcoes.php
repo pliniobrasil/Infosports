@@ -126,6 +126,7 @@ function criarArrayUrl(){
         "tenis" => "./php/tenis.php",
         "trilha" => "./php/trilha.php",
     );
+    return $include;
 }
 
 function criarLista(){
