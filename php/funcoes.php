@@ -115,7 +115,7 @@ function listarNoticia(){
 
 function criarArrayUrl(){
     $include = array(
-        "principal" => "./php/principál.php",
+        "principal" => "./php/principal.php",
         "login" => "./php/login.php",
         "registro" => "./php/registro.php",
         "contato" => "./php/contato.php",
