@@ -113,6 +113,21 @@ function listarNoticia(){
     return $list;
 }
 
+function criarArrayUrl(){
+    $include = array(
+        "principal" => "./php/principál.php",
+        "login" => "./php/login.php",
+        "registro" => "./php/registro.php",
+        "contato" => "./php/contato.php",
+        "basquete" => "./php/basquete.php",
+        "boxe" => "./php/boxe.php",
+        "corrida" => "./php/corrida.php",
+        "surf" => "./php/surf.php",
+        "tenis" => "./php/tenis.php",
+        "trilha" => "./php/trilha.php",
+    );
+}
+
 function criarLista(){
     $listaCard[0] = array(
         "link" => "https://localhost/Infosports/?pagina=basquete",
