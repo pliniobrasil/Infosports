@@ -89,6 +89,16 @@ function criptografia($senha){
     return sha1($senha);
 }
 
+function verificarLogin($login){
+    $pdo = Database::conexao();
+    $sql = "SELECT `id`, `login`, `senha` FROM registro WHERE `login` = $login;
+    VALUES(:nome,:sobrenome,:email,:telefone,:mensagem)";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $list[0];
+}
+
 function cadastrarNoticia($titulo, $descricao, $descricaoCurta, $img, $href){
     if (!$titulo || !$descricao || !$descricaoCurta || !$img || !$href){return;}
     $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`descricaoCurta`,`img`,`href`)
