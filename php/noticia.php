@@ -13,17 +13,9 @@ include_once('header.php');
                 <label for="itext"></label><br>
                 <input name="descricao" id="itext" type="text" placeholder="Descrição">
             </div>
-            <div class="telefone">
-                <label for="itext"></label><br>
-                <input name="descricaoCurta" id="itext" type="text" placeholder="Descrição Curta">
-            </div>
             <div class="nome">
                 <label for="itext"></label><br>
-                <input name="img" id="itext" type="text" placeholder="Insira o local da imagem">
-            </div>
-            <div class="nome">
-                <label for="itext"></label><br>
-                <input name="href" id="itext" type="text" placeholder="Href">
+                <input name="img" id="itext" type="text" placeholder="Imagem">
             </div>
             <button type="submit" class="btnConcluir">Concluir</button>
         </form>

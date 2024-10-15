@@ -6,14 +6,14 @@ include_once('header.php');
         <form action="">
             <h1><b>Faça o seu login</b></h1>
             <div class="email">
-                <label for="itext"></label>
-                <input name="itext" id="itext" type="text" placeholder="Email">
+                <label for="login"></label>
+                <input name="login" id="itext" type="text" placeholder="Login">
             </div>
             <div class="telefone">
-                <label for="itext"></label>
-                <input name="itext" id="itext" type="text" placeholder="Telefone">
+                <label for="senha"></label>
+                <input name="senha" id="itext" type="password" placeholder="Digite sua senha">
             </div>
-            <button class="btnConcluir">Concluir</button>
+            <button type="submit" class="btnConcluir">Concluir</button>
         </form>
     </div>
 </section>

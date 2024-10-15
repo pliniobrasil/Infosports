@@ -9,12 +9,12 @@
 <section class="gridCard" > 
     <div class="mainContent" >
         <?php
-            foreach (criarLista() as $item){
+            foreach ($listarNoticias as $item){
         ?>
             <div class="categoryCard">
-                <a class="pagLink" href=<?= $item["link"];?>>
+                <a class="pagLink" href="<?= constant('URL_LOCAL_SITE_PAGINA').'detalhe'?>&noticia=<?= $item["id"] ;?>">
                     <div>
-                        <img src= <?php echo $item["imagem"];?> class="mainCardImg" width="320px" height="180px">
+                        <img src="<?= constant("URL_LOCAL_SITE").'imagens/'.$item["img"] ;?>" class="mainCardImg" width="320px" height="180px">
                         <br>
                         <?php echo $item["titulo"];?> <br>
                         <br>

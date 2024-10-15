@@ -79,7 +79,7 @@ if($paginaUrl === "principal" && !$noticiaId){
     include_once('php\registro.php');
 }elseif($paginaUrl === "contato"){
     include_once('php\contato.php');
-}elseif($noticiaId){
+}elseif($paginaUrl === "detalhe"){
     include_once('php\detalhe.php');
 }else{
     echo "404 Página não existe!";

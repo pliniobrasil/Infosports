@@ -99,22 +99,29 @@ function verificarLogin($login){
     return $list[0];
 }
 
-function cadastrarNoticia($titulo, $descricao, $descricaoCurta, $img, $href){
-    if (!$titulo || !$descricao || !$descricaoCurta || !$img || !$href){return;}
-    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`descricaoCurta`,`img`,`href`)
-    VALUES(:titulo,:descricao,:descricaoCurta,:img,:href)";
+function cadastrarNoticia($titulo, $descricao, $img){
+    if (!$titulo || !$descricao || !$img){return;}
+    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`img`)
+    VALUES(:titulo,:descricao,:img)";
     $pdo = Database::conexao();
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':titulo', $titulo);
     $stmt->bindParam(':descricao', $descricao);
-    $stmt->bindParam(':descricaoCurta', $descricaoCurta);
     $stmt->bindParam(':img', $img);
-    $stmt->bindParam(':href', $href);
     $result = $stmt->execute();
     return ($result)?true:false;
 }
 
-function listarNoticia(){
+function buscarNoticia(){
+    $pdo = Database::conexao();
+    $sql = "SELECT * FROM noticia WHERE id = $id";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $list[0];
+}
+
+function listarNoticias(){
     $pdo = Database::conexao();
     $sql = "SELECT * FROM noticia";
     $stmt = $pdo->prepare($sql);
