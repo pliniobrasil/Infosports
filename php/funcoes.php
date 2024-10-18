@@ -91,12 +91,17 @@ function criptografia($senha){
 
 function verificarLogin($login){
     $pdo = Database::conexao();
-    $sql = "SELECT `id`, `login`, `senha` FROM registro WHERE `login` = $login;
-    VALUES(:nome,:sobrenome,:email,:telefone,:mensagem)";
+    $sql = "SELECT `id`, `login`, `senha` FROM registro WHERE `login` = '$login'";
     $stmt = $pdo->prepare($sql);
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $list[0];
+}
+
+function validaSenha($senhaDigitada, $senhaBd){
+    if(!$senhaDigitada || !$senhaBd){return false;}
+    if($senhaDigitada == $senhaBd){return true;}
+    return false;
 }
 
 function cadastrarNoticia($titulo, $descricao, $img){

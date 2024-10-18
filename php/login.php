@@ -3,7 +3,7 @@ include_once('header.php');
 ?>
 <section>
     <div class="login">
-        <form action="">
+        <form action="#" method="POST">
             <h1><b>Faça o seu login</b></h1>
             <div class="email">
                 <label for="login"></label>

@@ -52,11 +52,19 @@ $includeUrl = FALSE;
 if($paginaUrl === "principal"){
     cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);    
 }elseif($paginaUrl === "noticia"){
-    cadastrarNoticia($titulo, $descricao, $descricaoCurta, $img, $href);
+    cadastrarNoticia($titulo, $descricao, $img);
 }elseif($paginaUrl === "registro"){
     registro($nome,$email,$telefone,$login,$senha);  
 }elseif($paginaUrl === "contato"){
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
+}elseif($paginaUrl === "login"){
+    $usuarioCadastrado = verificarLogin($login);
+    if($usuarioCadastrado && validaSenha($senha, $usuarioCadastrado['senha']))
+    {
+        $_SESSION["usuario"]["nome"] = $usuarioCadastrado['nome'];
+        $_SESSION["usuario"]["id"] = $usuarioCadastrado['id'];
+        $_SESSION["usuario"]["status"] = 'logado';      
+    }
 }
 
 include_once('php\header.php');
