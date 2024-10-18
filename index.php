@@ -63,7 +63,8 @@ if($paginaUrl === "principal"){
     {
         $_SESSION["usuario"]["nome"] = $usuarioCadastrado['nome'];
         $_SESSION["usuario"]["id"] = $usuarioCadastrado['id'];
-        $_SESSION["usuario"]["status"] = 'logado';      
+        $_SESSION["usuario"]["status"] = 'logado';
+        registrarAcessoValido($usuarioCadastrado);
     }
 }
 
@@ -80,10 +81,12 @@ foreach($arrayUrl as $chave => $valor){
 if($paginaUrl === "principal" && !$noticiaId){
     include_once('php\principal.php');
 }elseif($paginaUrl === "noticia"){
+    protegerTela();
     include_once('php\noticia.php');
 }elseif($paginaUrl === "login"){
     include_once('php\login.php');
 }elseif($paginaUrl === "registro"){
+    protegerTela();
     include_once('php\registro.php');
 }elseif($paginaUrl === "contato"){
     include_once('php\contato.php');
