@@ -8,21 +8,18 @@
 
 <section class="gridCard" > 
     <div class="mainContent" >
-        <?php
-            foreach ($listarNoticias as $item){
-        ?>
-            <div class="categoryCard">
-                <a class="pagLink" href="<?= constant('URL_LOCAL_SITE_PAGINA').'detalhe'?>&noticia=<?= $item["id"] ;?>">
-                    <div>
-                        <img src="<?= constant("URL_LOCAL_SITE").'imagens/'.$item["img"] ;?>" class="mainCardImg" width="320px" height="180px">
-                        <br>
-                        <?php echo $item["titulo"];?> <br>
-                        <br>
-                        <?php echo $item["descricao"];?>
-                    </div>
-                </a>
-            </div>
-            <br>
+        <?php foreach ($listarNoticias as $item){ ?>
+        <div class="categoryCard">
+            <a class="pagLink" href="<?= constant('URL_LOCAL_SITE_PAGINA').'detalhe'?>&noticia=<?= $item["id"] ;?>">
+                <div>
+                    <img src="<?= constant("URL_LOCAL_SITE").'imagens/'.$item["img"] ;?>" class="mainCardImg" width="320px" height="180px">
+                    <br>
+                    <?= $item["titulo"];?> <br>
+                    <br>
+                    <?= $item["descricao"];?>
+                </div>
+            </a>
+        </div>
         <?php
             }
         ?>

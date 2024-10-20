@@ -131,7 +131,7 @@ function cadastrarNoticia($titulo, $descricao, $img){
     return ($result)?true:false;
 }
 
-function buscarNoticia(){
+function buscarNoticia($id){
     $pdo = Database::conexao();
     $sql = "SELECT * FROM noticia WHERE id = $id";
     $stmt = $pdo->prepare($sql);
