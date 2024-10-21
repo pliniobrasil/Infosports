@@ -28,6 +28,8 @@ $descricao = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['descricao']
 
 $img = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['img'])) ? $_POST['img'] : null;
 
+$senha = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty(criptografia($_POST['senha']))) ? criptografia($_POST['senha']) : null;
+
 $resposta = 0;
 
 $resposta = calcularImc($peso, $altura);
@@ -57,11 +59,10 @@ if($paginaUrl === "principal"){
     $usuarioCadastrado = verificarLogin($login);
     if($usuarioCadastrado && validaSenha($senha, $usuarioCadastrado['senha']))
     {
-        $_SESSION["usuario"]["nome"] = $usuarioCadastrado['nome'];
-        $_SESSION["usuario"]["id"] = $usuarioCadastrado['id'];
-        $_SESSION["usuario"]["status"] = 'logado';
         registrarAcessoValido($usuarioCadastrado);
     }
+}elseif($paginaUrl === "sair"){
+    limparSessao();
 }
 
 include_once('php\header.php');

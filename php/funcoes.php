@@ -118,6 +118,11 @@ function registrarAcessoValido($usuarioCadastrado){
     $_SESSION["usuario"]["status"] = 'logado';
 }
 
+function limparSessao(){
+    unset($_SESSION["usuario"]);
+    header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
+}
+
 function cadastrarNoticia($titulo, $descricao, $img){
     if (!$titulo || !$descricao || !$img){return;}
     $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`img`)
