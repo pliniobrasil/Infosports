@@ -75,16 +75,16 @@ foreach($arrayUrl as $chave => $valor){
     };
 }
 
-if($paginaUrl === "principal" && !$noticiaId){
+if($paginaUrl === "principal"){
     include_once('php\principal.php');
-}elseif($paginaUrl === "noticia"){
-    protegerTela();
-    include_once('php\noticia.php');
 }elseif($paginaUrl === "login"){
     include_once('php\login.php');
 }elseif($paginaUrl === "registro"){
     protegerTela();
     include_once('php\registro.php');
+}elseif($paginaUrl === "noticia"){
+    protegerTela();
+    include_once('php\noticia.php');
 }elseif($paginaUrl === "contato"){
     include_once('php\contato.php');
 }elseif($paginaUrl === "detalhe"){
