@@ -69,7 +69,7 @@ if($paginaUrl === "principal"){
     if($usuarioCadastrado && validaSenha($senha, $usuarioCadastrado['senha'])){
         registrarAcessoValido($usuarioCadastrado);
         $mensagemAcesso = true;
-    }
+    };
     if($login && !$usuarioCadastrado){
         $mensagemErro = true;
     };

@@ -90,6 +90,7 @@ function criptografia($senha){
 }
 
 function verificarLogin($login){
+    if(!$login){return;}
     $pdo = Database::conexao();
     $sql = "SELECT `id`, `login`, `senha` FROM registro WHERE `login` = '$login'";
     $stmt = $pdo->prepare($sql);
@@ -105,7 +106,7 @@ function validaSenha($senhaDigitada, $senhaBd){
 }
 
 function protegerTela(){
-    if(!$_SESSION || !$_SESSION["usuario"]["status"] !== 'logado'){
+    if(!$_SESSION || !$_SESSION["usuario"]["status"] === 'logado'){
         header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
     };
 }
