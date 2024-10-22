@@ -247,10 +247,12 @@ function horaAtual(){
  * @param $str que representa o texto a ser reduzido
  * @param $quantidade que representa quantos caracteres vão ser exibidos
  */
-function reduzirStr($str, $quantidade){
+function reduzirStr($str,$quantidade){
     $tamanho = strlen($str);
-    if ($str && $tamanho >= $quantidade){
-        return substr($str,0,$quantidade)." [...}";
+    if($str && $tamanho >= $quantidade){
+      return substr($str,0,$quantidade)." [...]";
+    }else{
+        return $str;
     }
 }
 
