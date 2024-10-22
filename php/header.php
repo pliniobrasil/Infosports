@@ -41,7 +41,21 @@
 <header>
     <a class="titulo" href="<?=constant('URL_LOCAL_PAGINA').'principal';?>">InfoSports</a>
         <nav class="mainInitial">
-            <?php include_once('menuTopo.php');?>
+            <button class="mainButton">
+            <a class="mainButtonText" href="<?=constant('URL_LOCAL_PAGINA').'login';?>">Login</a>
+            </button>
+            <button class="mainButton">
+                <a class="mainButtonText" href="<?=constant('URL_LOCAL_PAGINA').'registro';?>">Registro</a>
+            </button>
+            <button class="mainButton">
+                <a class="mainButtonText" href="<?=constant('URL_LOCAL_PAGINA').'contato';?>">Contato</a>
+            </button>
+            <button class="mainButton">
+                <a class="mainButtonText" href="<?=constant('URL_LOCAL_PAGINA').'noticia';?>"> Cadastrar Notícia</a>
+            </button>
+            <button class="mainButton">
+                <a class="mainButtonText" href="<?=constant('URL_LOCAL_PAGINA').'sair';?>">Sair</a>
+            </button>
         </nav>
 </header>
 <body>

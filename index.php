@@ -36,6 +36,8 @@ $resposta = calcularImc($peso, $altura);
 
 $classificacao = classificarImc($resposta);
 
+$listaNoticia = listarNoticias();
+
 // Pegando informação da url
 if($_GET && isset($_GET['pagina'])){
     $paginaUrl = $_GET['pagina'];
@@ -46,26 +48,6 @@ if($_GET && isset($_GET['pagina'])){
 // $arrayUrl = criarArrayUrl();
 
 $includeUrl = FALSE;
-
-if($paginaUrl === "principal"){
-    cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);    
-}elseif($paginaUrl === "noticia"){
-    cadastrarNoticia($titulo, $descricao, $img);
-}elseif($paginaUrl === "registro"){
-    registro($nome,$email,$telefone,$login,$senha);  
-}elseif($paginaUrl === "contato"){
-    cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
-}elseif($paginaUrl === "login"){
-    $mensagemErro = false;
-    $mensagemAcesso = false;
-    $usuarioCadastrado = verificarLogin($login);
-    if($usuarioCadastrado && validaSenha($senha, $usuarioCadastrado['senha'])){
-        registrarAcessoValido($usuarioCadastrado);
-        $mensagemAcesso = true;
-    }
-}elseif($paginaUrl === "sair"){
-    limparSessao();
-}
 
 include_once('php\header.php');
 
@@ -79,20 +61,48 @@ include_once('php\header.php');
 
 if($paginaUrl === "principal"){
     include_once('php\principal.php');
+    cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);
 }elseif($paginaUrl === "login"){
+    $mensagemErro = false;
+    $mensagemAcesso = false;
+    $usuarioCadastrado = verificarLogin($login);
+    if($usuarioCadastrado && validaSenha($senha, $usuarioCadastrado['senha'])){
+        registrarAcessoValido($usuarioCadastrado);
+        $mensagemAcesso = true;
+    }
+    if($login && !$usuarioCadastrado){
+        $mensagemErro = true;
+    };
     include_once('php\login.php');
 }elseif($paginaUrl === "registro"){
+    $mensagemErro = false;
+    $permissaoRegistro = '';
+    if($login){
+        $permissaoRegistro = loginUnico($login);
+    };
+    if($permissaoRegistro === false){
+        $mensagemErro = true;
+    };
     protegerTela();
     include_once('php\registro.php');
+    if(!empty($permissaoRegistro) && $permissaoRegistro === true){
+        registro($nome,$email,$telefone,$login,$senha);
+    };
+}elseif($paginaUrl === "contato"){
+    include_once('php\contato.php');
+    cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }elseif($paginaUrl === "noticia"){
     protegerTela();
     include_once('php\noticia.php');
-}elseif($paginaUrl === "contato"){
-    include_once('php\contato.php');
+    cadastrarNoticia($titulo, $descricao, $img);
 }elseif($paginaUrl === "detalhe"){
-    include_once('php\detalhe.php');
+    protegerTela();
+    include_once('php\detalhe.php');    
+}elseif($paginaUrl === "sair"){
+    limparSessao();
 }else{
     echo "404 Página não existe!";
 }
+
 include_once('php\footer.php');
 ?>
