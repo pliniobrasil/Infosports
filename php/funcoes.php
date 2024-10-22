@@ -95,7 +95,7 @@ function verificarLogin($login){
     $stmt = $pdo->prepare($sql);
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $list[0];
+    return ($list)?$list[0]:false;
 }
 
 function validaSenha($senhaDigitada, $senhaBd){
@@ -105,13 +105,11 @@ function validaSenha($senhaDigitada, $senhaBd){
 }
 
 function protegerTela(){
-    if(
-        !$_SESSION || 
-        !$_SESSION["usuario"]["status"] === 'logado'
-    ){
+    if(!$_SESSION || !$_SESSION["usuario"]["status"] !== 'logado'){
         header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
-    }
+    };
 }
+
 function registrarAcessoValido($usuarioCadastrado){
     $_SESSION["usuario"]["nome"] = $usuarioCadastrado['nome'];
     $_SESSION["usuario"]["id"] = $usuarioCadastrado['id'];

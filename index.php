@@ -43,7 +43,7 @@ if($_GET && isset($_GET['pagina'])){
     $paginaUrl = null;
 }
 
-$arrayUrl = criarArrayUrl();
+// $arrayUrl = criarArrayUrl();
 
 $includeUrl = FALSE;
 
@@ -56,10 +56,12 @@ if($paginaUrl === "principal"){
 }elseif($paginaUrl === "contato"){
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }elseif($paginaUrl === "login"){
+    $mensagemErro = false;
+    $mensagemAcesso = false;
     $usuarioCadastrado = verificarLogin($login);
-    if($usuarioCadastrado && validaSenha($senha, $usuarioCadastrado['senha']))
-    {
+    if($usuarioCadastrado && validaSenha($senha, $usuarioCadastrado['senha'])){
         registrarAcessoValido($usuarioCadastrado);
+        $mensagemAcesso = true;
     }
 }elseif($paginaUrl === "sair"){
     limparSessao();
@@ -67,13 +69,13 @@ if($paginaUrl === "principal"){
 
 include_once('php\header.php');
 
-foreach($arrayUrl as $chave => $valor){
-    if($paginaUrl === $chave){
-        echo include_once($valor);
-        $includeUrl = TRUE;
-        return $includeUrl;
-    };
-}
+// foreach($arrayUrl as $chave => $valor){
+//     if($paginaUrl === $chave){
+//         echo include_once($valor);
+//         $includeUrl = TRUE;
+//         return $includeUrl;
+//     };
+// }
 
 if($paginaUrl === "principal"){
     include_once('php\principal.php');
