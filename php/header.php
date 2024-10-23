@@ -19,23 +19,8 @@
         <?php if($paginaUrl === "contato"):?>
             <link rel="stylesheet" href="./css/contato.css">
         <?php endif; ?>
-        <?php if($paginaUrl === "basquete"):?>
-            <link rel="stylesheet" href="./css/paginas.css">
-        <?php endif; ?>
-        <?php if($paginaUrl === "boxe"):?>
-            <link rel="stylesheet" href="./css/paginas.css">
-        <?php endif; ?>
-        <?php if($paginaUrl === "corrida"):?>
-            <link rel="stylesheet" href="./css/paginas.css">
-        <?php endif; ?>
-        <?php if($paginaUrl === "surf"):?>
-            <link rel="stylesheet" href="./css/paginas.css">
-        <?php endif; ?>
-        <?php if($paginaUrl === "tenis"):?>
-            <link rel="stylesheet" href="./css/paginas.css">
-        <?php endif; ?>
-        <?php if($paginaUrl === "trilha"):?>
-            <link rel="stylesheet" href="./css/paginas.css">
+        <?php if($paginaUrl === "detalhe"):?>
+        <link rel="stylesheet" href="css/paginas.css">
         <?php endif; ?>
 </head>
 <header>
