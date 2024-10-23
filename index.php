@@ -47,19 +47,7 @@ if($_GET && isset($_GET['pagina'])){
     $paginaUrl = null;
 }
 
-// $arrayUrl = criarArrayUrl();
-
-$includeUrl = FALSE;
-
 include_once('php\header.php');
-
-// foreach($arrayUrl as $chave => $valor){
-//     if($paginaUrl === $chave){
-//         echo include_once($valor);
-//         $includeUrl = TRUE;
-//         return $includeUrl;
-//     };
-// }
 
 if($paginaUrl === "principal"){
     include_once('php\principal.php');

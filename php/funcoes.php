@@ -144,8 +144,7 @@ function buscarNoticia($id){
     return $list[0];
 }
 
-function buscarNoticiaPorId($id)
-{
+function buscarNoticiaPorId($id){
      if(!$id){return;}
      $sql = "SELECT * FROM noticia WHERE `id` = :id";
      $pdo = Database::conexao();
