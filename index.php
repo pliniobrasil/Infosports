@@ -93,7 +93,7 @@ if($paginaUrl === "principal"){
     $idNoticia = 0;
     }
 
-    $noticia = buscarNoticiaPorId($idNoticia);
+    $noticia = buscarNoticia($idNoticia);
 
     include_once('php\detalhe.php'); 
 
