@@ -38,6 +38,8 @@ $classificacao = classificarImc($resposta);
 
 $listaNoticia = listarNoticias();
 
+$noticia = null;
+
 // Pegando informação da url
 if($_GET && isset($_GET['pagina'])){
     $paginaUrl = $_GET['pagina'];
@@ -96,7 +98,12 @@ if($paginaUrl === "principal"){
     include_once('php\noticia.php');
     cadastrarNoticia($titulo, $descricao, $img);
 }elseif($paginaUrl === "detalhe"){
-    protegerTela();
+    if($_GET && isset($_GET['id'])){
+        $idNoticia = $_GET['id'];
+    }else{
+    $idNoticia = 0;
+    }
+    $noticia = buscarNoticiaPorId($idNoticia);
     include_once('php\detalhe.php');    
 }elseif($paginaUrl === "sair"){
     limparSessao();

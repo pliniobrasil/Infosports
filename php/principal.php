@@ -13,7 +13,7 @@
         foreach($listaNoticias as $noticia):
         ?>
         <div class="categoryCard">
-            <a class="pagLink" href="<?=constant('URL_LOCAL_SITE_DETALHE')?>">
+            <a class="pagLink" href="<?=constant('URL_LOCAL_SITE_DETALHE').$noticia['id']?>">
                 <div>
                     <img src="./imagens/<?=$noticia['img']?>" class="mainCardImg" width="320px" height="180px">
                     <br>

@@ -144,6 +144,17 @@ function buscarNoticia($id){
     return $list[0];
 }
 
+function buscarNoticiaPorId($id)
+{
+     if(!$id){return;}
+     $sql = "SELECT * FROM noticia WHERE `id` = :id";
+     $pdo = Database::conexao();
+     $stmt = $pdo->prepare($sql);
+     $stmt->bindParam(':id', $id);
+     $result = $stmt->execute();
+     return $result[0];
+}
+
 function listarNoticias(){
     $pdo = Database::conexao();
     $sql = "SELECT * FROM noticia";
