@@ -20,8 +20,6 @@ $mensagem = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['mensagem']))
 
 $login = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['login'])) ? $_POST['login'] : null;
 
-$senha = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['senha'])) ? $_POST['senha'] : null;
-
 $titulo = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['titulo'])) ? $_POST['titulo'] : null;
 
 $descricao = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['descricao'])) ? $_POST['descricao'] : null;
@@ -50,51 +48,59 @@ if($_GET && isset($_GET['pagina'])){
 include_once('php\header.php');
 
 if($paginaUrl === "principal"){
+
     include_once('php\principal.php');
     cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);
+
 }elseif($paginaUrl === "login"){
-    $mensagemErro = false;
-    $mensagemAcesso = false;
+
     $usuarioCadastrado = verificarLogin($login);
+
     if($usuarioCadastrado && validaSenha($senha, $usuarioCadastrado['senha'])){
         registrarAcessoValido($usuarioCadastrado);
-        $mensagemAcesso = true;
-    };
-    if($login && !$usuarioCadastrado){
-        $mensagemErro = true;
-    };
+    }
+
     include_once('php\login.php');
+
 }elseif($paginaUrl === "registro"){
-    $mensagemErro = false;
-    $permissaoRegistro = '';
-    if($login){
-        $permissaoRegistro = loginUnico($login);
-    };
-    if($permissaoRegistro === false){
-        $mensagemErro = true;
-    };
-    protegerTela();
+
     include_once('php\registro.php');
-    if(!empty($permissaoRegistro) && $permissaoRegistro === true){
-        registro($nome,$email,$telefone,$login,$senha);
-    };
+
+    registro($nome,$email,$telefone,$login,$senha);
+
 }elseif($paginaUrl === "contato"){
+
     include_once('php\contato.php');
+
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
+
 }elseif($paginaUrl === "noticia"){
+
     protegerTela();
+
     include_once('php\noticia.php');
+
     cadastrarNoticia($titulo, $descricao, $img);
+
 }elseif($paginaUrl === "detalhe"){
+
     if($_GET && isset($_GET['id'])){
+
         $idNoticia = $_GET['id'];
+
     }else{
+
     $idNoticia = 0;
     }
+
     $noticia = buscarNoticiaPorId($idNoticia);
-    include_once('php\detalhe.php');    
+
+    include_once('php\detalhe.php'); 
+
 }elseif($paginaUrl === "sair"){
+
     limparSessao();
+
 }else{
     echo "404 Página não existe!";
 }
