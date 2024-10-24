@@ -162,6 +162,15 @@ function listarNoticias(){
     return $list;
 }
 
+function buscarSugestao(){
+    $pdo = Database::conexao();
+    $sql = "SELECT * FROM noticia WHERE `titulo` LIKE '%palavra%'";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $list;
+}
+
 function criarArrayUrl(){
     $include = array(
         "principal" => "./php/principal.php",
