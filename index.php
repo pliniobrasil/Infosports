@@ -55,13 +55,13 @@ if($paginaUrl === "principal"){
 }elseif($paginaUrl === "login"){
 
     $usuarioCadastrado = verificarLogin($login);
-
+    
     if($usuarioCadastrado && validaSenha($senha, $usuarioCadastrado['senha'])){
+        
         registrarAcessoValido($usuarioCadastrado);
     }
 
     include_once('php\login.php');
-
 }elseif($paginaUrl === "registro"){
 
     include_once('php\registro.php');

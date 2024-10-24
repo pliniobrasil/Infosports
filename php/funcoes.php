@@ -55,7 +55,6 @@ function classificarImc($imc){
 
 function registro($nome,$email,$telefone,$login,$senha){
     if (!$nome || !$email || !$telefone|| !$login|| !$senha){return;}
-    $senha = criptografia($senha);
     $sql = "INSERT INTO `registro` (`nome`,`email`,`telefone`,`login`,`senha`)
     VALUES(:nome,:email,:telefone,:login,:senha)";
     $pdo = Database::conexao();
@@ -108,11 +107,11 @@ function validaSenha($senhaDigitada, $senhaBd){
 function protegerTela(){
     if(!$_SESSION || !$_SESSION["usuario"]["status"] === 'logado'){
         header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
-    };
+    }
 }
 
 function registrarAcessoValido($usuarioCadastrado){
-    $_SESSION["usuario"]["nome"] = $usuarioCadastrado['nome'];
+    $_SESSION["usuario"]["nome"] = $usuarioCadastrado['login'];
     $_SESSION["usuario"]["id"] = $usuarioCadastrado['id'];
     $_SESSION["usuario"]["status"] = 'logado';
 }
