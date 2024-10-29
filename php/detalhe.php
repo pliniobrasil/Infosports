@@ -40,6 +40,8 @@ $buscarSugestao = buscarSugestoes($noticia["categoria"],$noticia["titulo"]);
                 </div>
             </a>
         </div>
+</section>
+
 <?php
 endforeach
 ?>
