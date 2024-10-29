@@ -16,10 +16,13 @@ include_once('header.php');
         </div>
     </div>
 </section>
+
 <h4>Notícias relacionadas: </h4>
+
 <?php
 $buscarSugestao = buscarSugestoes($noticia["categoria"],$noticia["titulo"]);
 ?>
+
 <section class="gridCard" > 
     <div class="mainContent" >
         <?php 
