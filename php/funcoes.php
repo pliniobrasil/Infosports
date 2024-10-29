@@ -162,9 +162,9 @@ function listarNoticias(){
     return $list;
 }
 
-function buscarSugestao(){
+function buscarSugestoes($categoria,$titulo){
     $pdo = Database::conexao();
-    $sql = "SELECT * FROM noticia WHERE `titulo` LIKE '%palavra%'";
+    $sql = "SELECT * FROM noticia WHERE `titulo` != '$titulo' AND categoria LIKE '$categoria'";
     $stmt = $pdo->prepare($sql);
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
