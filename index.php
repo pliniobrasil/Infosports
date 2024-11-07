@@ -45,11 +45,11 @@ if($_GET && isset($_GET['pagina'])){
     $paginaUrl = null;
 }
 
-include_once('php\header.php');
+include_once('view\header-view');
 
 if($paginaUrl === "principal"){
 
-    include_once('php\principal.php');
+    include_once('view\principal-view');
     cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);
 
 }elseif($paginaUrl === "login"){
@@ -61,16 +61,16 @@ if($paginaUrl === "principal"){
         registrarAcessoValido($usuarioCadastrado);
     }
 
-    include_once('php\login.php');
+    include_once('view\login-view');
 }elseif($paginaUrl === "registro"){
 
-    include_once('php\registro.php');
+    include_once('view\registro-view');
 
     registro($nome,$email,$telefone,$login,$senha);
 
 }elseif($paginaUrl === "contato"){
 
-    include_once('php\contato.php');
+    include_once('view\contato-view');
 
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 
@@ -78,7 +78,7 @@ if($paginaUrl === "principal"){
 
     protegerTela();
 
-    include_once('php\noticia.php');
+    include_once('view\noticia-view');
 
     cadastrarNoticia($titulo, $descricao, $img);
 
@@ -95,7 +95,7 @@ if($paginaUrl === "principal"){
 
     $noticia = buscarNoticia($idNoticia);
 
-    include_once('php\detalhe.php'); 
+    include_once('view\detalhe-view'); 
 
 }elseif($paginaUrl === "sair"){
 
@@ -105,5 +105,5 @@ if($paginaUrl === "principal"){
     echo "404 Página não existe!";
 }
 
-include_once('php\footer.php');
+include_once('view\footer-view');
 ?>
