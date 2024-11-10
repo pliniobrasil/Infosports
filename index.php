@@ -1,6 +1,6 @@
 <?php
 
-include_once('php\funcoes.php');
+include_once('funcoes.php');
 include_once('configuracao.php');
 include_once("configuracao/conexao.php");
 
