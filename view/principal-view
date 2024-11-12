@@ -27,33 +27,33 @@
         endforeach
         ?>
     </div>
-            <aside class="sideIMC" >
-                <div class="sideIMCContent">
-                    <div class="IMC">
-                        <p>INDICE DE MASSA CORPORAL (IMC)</p>
-                        <div>
-                            <form method="POST" action="#">
-                                <label for="itext">Nome</label><br>
-                                <input name="nome" id="itext" type="text" placeholder="Digite seu nome..."><br>
-                                <br>
-                                <label for="itext">E-mail</label><br>
-                                <input name="email" id="itext" type="text" placeholder="Digite seu e-mail..."><br>
-                                <br>
-                                <label for="itext">Peso (KG)</label><br>
-                                <input name="peso" id="itext" type="text" placeholder="Digite o peso..."><br>
-                                <br>
-                                <label for="itext">Altura (M)</label><br>
-                                <input name="altura" id="itext" type="text" placeholder="Digite a altura..."><br>
-                                <br>
-                                <button type="submit" class="btnCalcular" >Calcular</button>
-                            </form>
+    <aside class="sideIMC" >
+        <div class="sideIMCContent">
+            <div class="IMC">
+                <p>INDICE DE MASSA CORPORAL (IMC)</p>
+                <div>
+                    <form method="POST" action="#">
+                        <label for="itext">Nome</label><br>
+                        <input name="nome" id="itext" type="text" placeholder="Digite seu nome..."><br>
                         <br>
-                        <h4>
-                            Resultado: <?= $resposta;?>
-                            Classificação: <?= $classificacao;?>
-                        </h4>
-                        </div>
-                    </div>
+                        <label for="itext">E-mail</label><br>
+                        <input name="email" id="itext" type="text" placeholder="Digite seu e-mail..."><br>
+                        <br>
+                        <label for="itext">Peso (KG)</label><br>
+                        <input name="peso" id="itext" type="text" placeholder="Digite o peso..."><br>
+                        <br>
+                        <label for="itext">Altura (M)</label><br>
+                        <input name="altura" id="itext" type="text" placeholder="Digite a altura..."><br>
+                        <br>
+                        <button type="submit" class="btnCalcular" >Calcular</button>
+                    </form>
+                <br>
+                <h4>
+                    Resultado: <?= $resposta;?>
+                    Classificação: <?= $classificacao;?>
+                </h4>
                 </div>
-            </aside>
+            </div>
+        </div>
+    </aside>
 </section>  
