@@ -114,6 +114,8 @@ if($paginaUrl === "principal"){
 
     $noticia = buscarNoticia($idNoticia);
 
+    $noticiasPorCategoria = listarNoticiasPorCategoria($noticia['categoriaId']);
+
     $categorias = listarCategorias();
 
     include_once('view\detalhe-view'); 
