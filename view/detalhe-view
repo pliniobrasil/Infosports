@@ -34,8 +34,8 @@ include_once('header-view');
         </div>
 </section>
 
-<section class="gridContainer">
-    <div class="mainContent">
+<section>
+    <div>
         <?php 
             foreach($noticiasPorCategoria as $noticia_categoria):
             ?>
