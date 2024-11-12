@@ -38,6 +38,10 @@ $listaNoticia = listarNoticias();
 
 $noticia = null;
 
+$categoria = [];
+
+$noticiaPorCategoria = [];
+
 // Pegando informação da url
 if($_GET && isset($_GET['pagina'])){
     $paginaUrl = $_GET['pagina'];
@@ -82,6 +86,8 @@ if($paginaUrl === "principal"){
 
     cadastrarNoticia($titulo, $descricao, $img);
 
+    $categorias = listarCategorias();
+
 }elseif($paginaUrl === "detalhe"){
 
     if($_GET && isset($_GET['id'])){
@@ -94,6 +100,8 @@ if($paginaUrl === "principal"){
     }
 
     $noticia = buscarNoticia($idNoticia);
+
+    $categorias = listarCategorias();
 
     include_once('view\detalhe-view'); 
 

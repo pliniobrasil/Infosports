@@ -19,16 +19,8 @@ include_once('header-view');
 
 <h4>Notícias relacionadas: </h4>
 
-<?php
-$buscarSugestao = buscarSugestoes($noticia["categoria"],$noticia["titulo"]);
-?>
-
 <section class="gridCard" > 
     <div class="mainContent" >
-        <?php 
-        $buscarSugestao = buscarSugestoes($noticia["categoria"],$noticia["titulo"]);
-        foreach($buscarSugestao as $noticia):
-        ?>
         <div class="categoryCard">
             <a class="pagLink" href="<?=constant('URL_LOCAL_SITE').$noticia["id"]; ?>">
                 <div>
@@ -42,9 +34,21 @@ $buscarSugestao = buscarSugestoes($noticia["categoria"],$noticia["titulo"]);
         </div>
 </section>
 
-<?php
-endforeach
-?>
+<section class="gridContainer">
+    <div class="mainContent">
+        <?php 
+            foreach($noticiasPorCategoria as $noticia_categoria):
+            ?>
+            <a class="pag-link" href="<?=constant('URL_LOCAL_SITE_DETALHE').$noticia_categoria['id']?>">
+            <div class="categoryCard">
+                <img src="./imagens/<?=$noticia_categoria['img']?>" alt="mainCardImg" class="mainCardImg" width=320px height=180px>
+                <p class="mainCategoryCardTitle"><?=$noticia_categoria['titulo']?></p>
+                <p class="mainCategoryCardDescription"><?= reduzirStr($noticia_categoria['descricao'],180)?></p>
+            </div>
+            </a>
+        <?php endforeach?>
+    </div>
+</section>
 
 <?php 
 include_once('footer-view');

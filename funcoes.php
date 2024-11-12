@@ -187,6 +187,24 @@ function criarArrayUrl(){
     return $include;
 }
 
+function listarCategorias(){
+    $pdo = Database::conexao();
+    $sql = "SELECT * FROM categoria";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $list;
+}
+
+function listarNoticiasPorCategoria($idCategoria){
+    $pdo = Database::conexao();
+    $sql = "SELECT * FROM noticia WHERE `categoriaId` = $idCategoria LIMIT 3;";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $list;
+}
+
 function criarLista(){
     $listaCard[0] = array(
         "link" => "https://localhost/Infosports/?pagina=basquete",
