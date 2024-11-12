@@ -1,0 +1,18 @@
+<?php
+include_once('header-view');
+?>
+<section>
+    <div class="registro">
+        <form method="POST" action="#">
+            <h1><b>Cadastrar categoria</b></h1>
+            <div class="nome">
+                <label for="itext"></label><br>
+                <input name="nomeCategoria" id="itext" type="text" placeholder="Digite a categoria">
+            </div>
+            <button type="submit" class="btnConcluir">Enviar</button>
+        </form>
+    </div>
+</section>
+<?php
+include_once('footer-view');
+?>

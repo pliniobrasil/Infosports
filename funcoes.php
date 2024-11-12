@@ -205,6 +205,29 @@ function listarNoticiasPorCategoria($idCategoria){
     return $list;
 }
 
+function cadastrarCategoria($nomeCategoria)
+{
+    if(!$nomeCategoria){return;}
+    $sql = "INSERT INTO `categoria` (`nome`)
+    VALUES(:nome)";
+
+    $pdo = Database::conexao();
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':nome', $nomeCategoria);
+    $result = $stmt->execute();
+    return ($result)?true:false;
+}
+
+function verificarCategoriaDuplicada($termo)
+{
+  $pdo = Database::conexao();
+  $sql = "SELECT * FROM `categoria` WHERE `nome` = '$termo'";
+  $stmt = $pdo->prepare($sql);
+  $list = $stmt->execute();
+  $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  return ($list)?true:false;
+}
+
 function criarLista(){
     $listaCard[0] = array(
         "link" => "https://localhost/Infosports/?pagina=basquete",

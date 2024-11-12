@@ -26,7 +26,9 @@ $descricao = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['descricao']
 
 $img = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['img'])) ? $_POST['img'] : null;
 
-$senha = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty(criptografia($_POST['senha']))) ? criptografia($_POST['senha']) : null;
+$nomeCategoria = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nomeCategoria'])) ? $_POST['nomeCategoria'] : null;
+
+@$senha = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty(criptografia($_POST['senha']))) ? criptografia($_POST['senha']) : null;
 
 $resposta = 0;
 
@@ -87,6 +89,17 @@ if($paginaUrl === "principal"){
     cadastrarNoticia($titulo, $descricao, $img);
 
     $categorias = listarCategorias();
+
+}elseif($paginaUrl === "cadastrar-categoria"){
+
+    if(!verificarCategoriaDuplicada($nomeCategoria)){
+
+    cadastrarCategoria($nomeCategoria);
+    }
+
+    protegerTela();
+
+    include_once("view\categoria-view");
 
 }elseif($paginaUrl === "detalhe"){
 
