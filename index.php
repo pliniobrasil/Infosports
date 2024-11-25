@@ -24,7 +24,7 @@ $titulo = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['titulo'])) ? $
 
 $descricao = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['descricao'])) ? $_POST['descricao'] : null;
 
-$img = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['img'])) ? $_POST['img'] : null;
+$img = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['fileToUpload'])) ? $_POST['fileToUpload'] : null;
 
 $nomeCategoria = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nomeCategoria'])) ? $_POST['nomeCategoria'] : null;
 
@@ -86,7 +86,9 @@ if($paginaUrl === "principal"){
 
     include_once('view\noticia-view');
 
-    cadastrarNoticia($titulo, $descricao, $img);
+    $nomedaImagem = upload($imagem);
+
+    cadastrarNoticia($titulo, $descricao, $nomedaImagem);
 
     $categorias = listarCategorias();
 
