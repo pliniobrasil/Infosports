@@ -70,9 +70,7 @@ if($paginaUrl === "principal"){
     include_once('view\login-view');
 }elseif($paginaUrl === "registro"){
 
-    include_once('view\registro-view');
-
-    registro($nome,$email,$telefone,$login,$senha);
+    include_once('controller/registro_controller.php');
 
 }elseif($paginaUrl === "contato"){
 
