@@ -8,7 +8,7 @@ include_once('header-view');
 <section class="gridContainer">
     <div class="mainContent">
         <div class="categoryCard">
-            <img src="./imagens/<?=$noticia['img']?>" class="mainCardImg" width="320px" height="180px">
+            <img src="./assets/uploads/<?=$noticia['img']?>" class="mainCardImg" width="320px" height="180px">
             <br>
             <?= $noticia["titulo"];?> <br>
             <br>
