@@ -21,7 +21,6 @@ $login = ($_SERVER["REQUEST_METHOD"] == "POST"
 @$senha = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty(criptografia($_POST['senha']))) ? criptografia($_POST['senha']) : null;
 
-protegerTela();
 if($paginaUrl === "registro"){
     if($_POST){registro($nome, $email, $telefone,$login,$senha);}
     include_once("view/registro-view");

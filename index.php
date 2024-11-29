@@ -3,6 +3,7 @@
 include_once('funcoes.php');
 include_once('configuracao.php');
 include_once("configuracao/conexao.php");
+include_once("model/acesso_model.php");
 
 $nome = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nome'])) ? $_POST['nome'] : null;
 
@@ -60,15 +61,17 @@ if($paginaUrl === "principal"){
 
 }elseif($paginaUrl === "login"){
 
-    $usuarioCadastrado = verificarLogin($login);
+    $usuarioCadastrado = acesso::verificarLogin($login);
     
-    if($usuarioCadastrado && validaSenha($senha, $usuarioCadastrado['senha'])){
+    if($usuarioCadastrado && acesso::validaSenha($senha, $usuarioCadastrado['senha'])){
         
-        registrarAcessoValido($usuarioCadastrado);
+        acesso::registrarAcessoValido($usuarioCadastrado);
     }
 
     include_once('view\login-view');
 }elseif($paginaUrl === "registro"){
+
+    acesso::protegerTela();
 
     include_once('controller/registro_controller.php');
 
@@ -80,7 +83,7 @@ if($paginaUrl === "principal"){
 
 }elseif($paginaUrl === "noticia"){
 
-    protegerTela();
+    acesso::protegerTela();
 
     include_once('view\noticia-view');
 
@@ -122,7 +125,7 @@ if($paginaUrl === "principal"){
 
 }elseif($paginaUrl === "sair"){
 
-    limparSessao();
+    acesso::limparSessao();
 
 }else{
     echo "404 Página não existe!";
