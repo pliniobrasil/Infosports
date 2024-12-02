@@ -9,7 +9,7 @@ class Acesso
 
     public static function verificarLogin($login){
         $pdo = Database::conexao();
-        $sql = "SELECT `id`,`nome`,`login`,`senha` FROM registro_tb WHERE `login` = '$login'";
+        $sql = "SELECT `id`,`nome`,`login`,`senha` FROM registro WHERE `login` = '$login'";
         $stmt = $pdo->prepare($sql);
         $list = $stmt->execute();
         $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -33,7 +33,7 @@ class Acesso
         header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
     }
 
-    function protegerTela(){
+    public static function protegerTela(){
         if(
             !$_SESSION || 
             !$_SESSION["usuario"]["status"] === 'logado'
