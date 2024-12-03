@@ -100,7 +100,7 @@ if($paginaUrl === "principal"){
     cadastrarCategoria($nomeCategoria);
     }
 
-    protegerTela();
+    acesso::protegerTela();
 
     include_once("view\categoria-view");
 
