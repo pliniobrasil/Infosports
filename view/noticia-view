@@ -11,7 +11,7 @@ include_once('header-view');
             </div>
             <div class="input-box">
                 <select name="categoria" class="name">
-                    <?php foreach ($categorias as $itemCategoria):?>
+                    <?php $categorias = listarCategorias(); foreach ($categorias as $itemCategoria):?>
                         <option value="<?=$itemCategoria['nome']?>"><?=$itemCategoria['nome']?></option>
                     <?php endforeach;?>
                 </select>
